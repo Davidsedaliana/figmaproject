@@ -1,0 +1,114 @@
+
+<mat-dialog-actions>
+  <div style="display: block; position: fixed">
+    <button mat-button (click)="open()">Add new</button>
+  </div>
+</mat-dialog-actions>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef> image </th>
+      <td mat-cell *matCellDef="let element"> <img [src]="element.image" style="width: 200px;"> </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="categoryImg">
+      <th mat-header-cell *matHeaderCellDef> categoryImg </th>
+      <td mat-cell *matCellDef="let element">  <img [src]="element.categoryImg"> </td>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+    <ng-container matColumnDef="short_description">
+      <th mat-header-cell *matHeaderCellDef> short_description </th>
+      <td mat-cell *matCellDef="let element"> {{element.short_description}} </td>
+    </ng-container>
+    <ng-container matColumnDef="postUser">
+      <th mat-header-cell *matHeaderCellDef> postUser </th>
+      <td mat-cell *matCellDef="let element"> {{element.postUser}} </td>
+    </ng-container>
+    <ng-container matColumnDef="postData">
+      <th mat-header-cell *matHeaderCellDef> postData </th>
+      <td mat-cell *matCellDef="let element"> {{element.postData}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"> <button (click)="delete(element.id)">Delete</button>
+          <button (click)="edit(element,element.id)">Edit</button></td>
+      </ng-container>
+      
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div *ngIf="bool">
+    <form [formGroup]="form"  #addUser="ngForm" (ngSubmit)="onSubmit(addUser.value)">
+        <div>
+          <label for="image">
+            image
+            <input type="text"  placeholder="Image" formControlName="image" id="image">
+          </label>
+        </div>
+        <div>
+          <label for="category">
+            name
+            <input type="text"  placeholder="category" formControlName="category" id="category">
+          </label>
+        </div>
+        <div>
+          <label for="categoryImg">
+            categoryImg
+            <input type="text"  placeholder="categoryImg" formControlName="categoryImg" id="categoryImg">
+          </label>
+        </div>
+      
+        <div>
+          <label for="title">
+            description
+          <input type="text"   placeholder="title" formControlName="title" id="title">
+         </label>
+       </div>
+       <div>
+        <label for="short_description">
+          facebook
+          <input type="text"  placeholder="short_description" formControlName="short_description" id="short_description">
+        </label>
+      </div>
+      <div>
+        <label for="postUser">
+          twiter
+          <input type="text"  placeholder="postUser" formControlName="postUser" id="postUser">
+        </label>
+      </div>
+      <div>
+        <label for="postData">
+          instagram
+          <input type="text"  placeholder="postData" formControlName="postData" id="postData">
+        </label>
+      </div>
+
+        <button type="submit" mat-button >Save</button>
+  
+      
+    </form>
+    
+    </div>
+      

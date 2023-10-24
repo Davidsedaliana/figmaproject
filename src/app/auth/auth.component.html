@@ -1,0 +1,22 @@
+
+<div class="header">
+    <div class="container3">
+    
+    <div class="logo_image">
+        <img src="assets/images/Logo.png" [routerLink]="'/'" style="cursor: pointer;">
+        
+    </div>
+</div>
+</div>
+<form class="authform">
+    <h3 class="form">SignUp</h3>
+        <mat-form-field>
+            <mat-label>Login</mat-label>
+            <input matInput placeholder="Login">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" type="password">
+        </mat-form-field>
+        <button mat-button (click)="login()">Sign Up</button>
+    </form>
