@@ -52,8 +52,8 @@
   
     <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element"> <button (click)="delete(element.id)">Delete</button>
-          <button (click)="edit(element,element.id)">Edit</button></td>
+        <td mat-cell *matCellDef="let element"> <button (click)="delete(element.id)" mat-raised-button>Delete</button>
+          <button (click)="edit(element,element.id)" mat-raised-button > Edit</button></td>
       </ng-container>
       
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

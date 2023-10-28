@@ -25,7 +25,7 @@
                 <div class="page2_section_text2">{{item.short_description}}</div>
             </div>
         </div>
-        <div style="display: flex; align-self: center;"> <a href="#"  class="page2_prev">< Prev</a><a href="#"  class="page2_next"> Next ></a> </div>
+        <div style="display: flex; align-self: center;"> <a class="page2_prev" (click)="back()">< Prev</a><a   class="page2_next" *ngIf="bool" (click)="next()"> Next ></a> </div>
      
 
     </div>

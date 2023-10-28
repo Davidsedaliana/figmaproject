@@ -129,8 +129,10 @@ export class AllpostsTableComponent implements OnInit {
   }
   delete(index:number){
     if(confirm('delete this data?')){
-      this.requestService.deleteItem(`${environment.posts.get}/${index}`).subscribe()
-      this.authorsGet()
+      this.requestService.deleteItem(`${environment.posts.get}/${index}`).subscribe(()=>{
+        this.authorsGet()
+
+      })
     }
   }
   displayedColumns: string[] = ['id', 'image', 'category', 'categoryImg','title','short_description','postUser','postData','action'];
