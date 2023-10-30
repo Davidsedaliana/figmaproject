@@ -17,6 +17,6 @@ export class AuthComponent {
   }
 login(){
   localStorage.setItem('token',Math.random().toString())
-  this.route.navigate(['admin'])
+  this.route.navigate(['admin/dashboard'])
 } 
 }
